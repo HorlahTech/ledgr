@@ -66,9 +66,9 @@ return walletRepository.save(wallet);
 
 }
 @Transactional 
-public  synchronized Wallet transer(TransferDTO tansferWallet, String idempotencyKey){
+public   Wallet transer(TransferDTO tansferWallet, String idempotencyKey){
 String myAccountNumber  = tansferWallet.getMyAccountNumber();
-String toAccountNumber  = tansferWallet.getMyAccountNumber();
+String toAccountNumber  = tansferWallet.getToAccountNumber();
     if (myAccountNumber.isBlank() ||  myAccountNumber.isEmpty() ||toAccountNumber.isBlank() ||  toAccountNumber.isEmpty()  ) {
     throw new NotFoundException("Account Number Cannot Be empty");
 }
