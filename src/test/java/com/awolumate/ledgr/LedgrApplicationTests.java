@@ -55,7 +55,7 @@ assertThat(balanceOf(receiver.getAccountNumber())).isEqualTo(2100);}
 
 	@Test
 	void overDraftTest(){
-	TransferDTO  tf = new TransferDTO(receiver.getAccountNumber(),sender.getAccountNumber(), 2000 );
+	TransferDTO  tf = new TransferDTO(receiver.getAccountNumber(),sender.getAccountNumber(), 2100 );
 	
 
 		 assertThatThrownBy(()->walletService.transer(tf, "wegedsdgdf")).isInstanceOf(ViolatedException.class);
