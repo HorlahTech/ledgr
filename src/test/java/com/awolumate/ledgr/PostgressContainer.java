@@ -11,7 +11,7 @@ public class PostgressContainer {
 @ServiceConnection 
 @Bean 
 PostgreSQLContainer postgressContainer(){
-    return new  PostgreSQLContainer("postgres:16")
+    return new PostgreSQLContainer("postgres:16")
     .withDatabaseName("ledgr")
     .withUsername("ledgr")
     .withPassword("user");

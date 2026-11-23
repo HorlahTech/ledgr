@@ -78,10 +78,10 @@ Wallet toAccount = walletRepository.findByAccountNumber(toAccountNumber).orElseT
 if (tansferWallet.getAmount() <= 0) {
     throw new ViolatedException("Transfer a valid Amount");
 }
-if (myAccount.getBalance() <= tansferWallet.getAmount()) {
+if (myAccount.getBalance() < tansferWallet.getAmount()) {
     throw new ViolatedException("Sender accound does not have  a Sufficient Balance");
 }
-Transfer newTransfer = new Transfer( myAccountNumber, toAccountNumber, tansferWallet.getAmount(), idempotencyKey );
+Transfer newTransfer = new Transfer(  toAccountNumber,myAccountNumber, tansferWallet.getAmount(), idempotencyKey );
 if (transferRepository.existsByIdempotencyKey(idempotencyKey)) {
     newTransfer.setStatus("FAILED");
     transferRepository.save(newTransfer);
