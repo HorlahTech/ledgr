@@ -11,7 +11,7 @@ import com.awolumate.ledgr.entity.Wallet;
 import jakarta.persistence.LockModeType;
 @Repository 
 public interface WalletRepository extends JpaRepository<Wallet, Long> {
-       @Lock(LockModeType.PESSIMISTIC_WRITE)
+    //    @Lock(LockModeType.PESSIMISTIC_WRITE)
     Optional<Wallet> findByAccountNumber(String accountNumber);
     boolean existsByAccountNumber(String accountNumber);
 

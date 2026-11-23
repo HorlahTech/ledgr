@@ -3,9 +3,10 @@ package com.awolumate.ledgr.exception;
 import org.springframework.http.HttpStatus;
 
 
-import lombok.Data;
 
-@Data 
+import lombok.Getter;
+
+@Getter 
 public abstract class AppException extends RuntimeException {
     private final HttpStatus status;
     private final String errorCode;

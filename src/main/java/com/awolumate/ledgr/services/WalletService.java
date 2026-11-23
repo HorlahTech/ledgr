@@ -19,6 +19,7 @@ import com.awolumate.ledgr.repositories.WalletRepository;
 import jakarta.transaction.Transactional;
 
 @Service 
+@Transactional 
 public class WalletService {
     @Autowired 
 WalletRepository walletRepository;
@@ -77,7 +78,7 @@ Wallet toAccount = walletRepository.findByAccountNumber(toAccountNumber).orElseT
 if (tansferWallet.getAmount() <= 0) {
     throw new ViolatedException("Transfer a valid Amount");
 }
-if (myAccount.getBalance() <= 0) {
+if (myAccount.getBalance() <= tansferWallet.getAmount()) {
     throw new ViolatedException("Sender accound does not have  a Sufficient Balance");
 }
 Transfer newTransfer = new Transfer( myAccountNumber, toAccountNumber, tansferWallet.getAmount(), idempotencyKey );
